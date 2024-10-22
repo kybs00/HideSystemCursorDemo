@@ -43,19 +43,19 @@ namespace SystemCursorDemo
             ShowButton.IsEnabled = true;
             HideButton.IsEnabled = false;
         }
-    /// <summary>
-    /// 获取当前显示光标句柄
-    /// </summary>
-    /// <returns></returns>
-    private IntPtr GetCurrentCursor()
-    {
-        CURSORINFO cursorInfo;
-        cursorInfo.cbSize = Marshal.SizeOf(typeof(CURSORINFO));
-        GetCursorInfo(out cursorInfo);
-        var cursorId = cursorInfo.hCursor;
-        var cursorHandle = CopyIcon(cursorId);
-        return cursorHandle;
-    }
+        /// <summary>
+        /// 获取当前显示光标句柄
+        /// </summary>
+        /// <returns></returns>
+        private IntPtr GetCurrentCursor()
+        {
+            CURSORINFO cursorInfo;
+            cursorInfo.cbSize = Marshal.SizeOf(typeof(CURSORINFO));
+            GetCursorInfo(out cursorInfo);
+            var cursorId = cursorInfo.hCursor;
+            var cursorHandle = CopyIcon(cursorId);
+            return cursorHandle;
+        }
         private void ShowCursor()
         {
             for (int i = 0; i < _systemCursorIds.Length; i++)
